@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Convite Especial</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff5f5; display: flex; flex-direction: column; align-items: center; padding: 20px; color: #444; margin: 0; }
+        h1 { color: #d63384; text-align: center; font-size: 1.6rem; margin: 30px 0; padding: 0 10px; }
+        
+        .card { background: white; border-radius: 20px; box-shadow: 0 6px 15px rgba(0,0,0,0.08); width: 100%; max-width: 340px; padding: 20px; margin-bottom: 20px; text-align: center; border: 2px solid transparent; box-sizing: border-box; transition: transform 0.2s; }
+        
+        /* Efeito de clique no mobile */
+        .card:active { transform: scale(0.96); background-color: #fff0f5; }
+        
+        .emoji { font-size: 40px; margin-bottom: 10px; display: block; }
+        .card h2 { font-size: 1.3rem; margin: 10px 0; color: #333; }
+        .card p { font-size: 0.95rem; color: #777; line-height: 1.4; }
+        
+        .btn-escolher { background: linear-gradient(135deg, #d63384, #ff4d94); color: white; border: none; padding: 12px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; margin-top: 15px; width: 100%; font-size: 1rem; box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3); }
+    </style>
+</head>
+<body>
+
+    <h1>Qual desses mais combina com a gente? ✨</h1>
+
+    <div class="card">
+        <span class="emoji">🍣</span>
+        <h2>Noite do Sushi</h2>
+        <p>Pra quem não dispensa um bom rodízio e um papo leve.</p>
+        <button class="btn-escolher" onclick="celebrar('Sushi')">Eu quero este!</button>
+    </div>
+
+    <div class="card">
+        <span class="emoji">🍦</span>
+        <h2>Sorvete e Caminhada</h2>
+        <p>Um encontro doce e tranquilo para aproveitar o dia.</p>
+        <button class="btn-escolher" onclick="celebrar('Sorvete')">Parece perfeito!</button>
+    </div>
+
+    <div class="card">
+        <span class="emoji">🎬</span>
+        <h2>Cinema + Pipoca</h2>
+        <p>Filminho, pipoca e aquela companhia de lei.</p>
+        <button class="btn-escolher" onclick="celebrar('Cinema')">Vamos nesse!</button>
+    </div>
+
+    <div class="card">
+        <span class="emoji">🍺</span>
+        <h2>Barzinho</h2>
+        <p>Música boa, porções e uma gelada pra descontrair.</p>
+        <button class="btn-escolher" onclick="celebrar('Barzinho')">Bora pro bar!</button>
+    </div>
+
+    <script>
+        function celebrar(opcao) {
+            // 1. Dispara os confetes
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#d63384', '#ff4d94', '#ffd1dc']
+            });
+
+            // 2. Espera um pouquinho (1.5 segundos) para ela ver a animação antes de sair do site
+            setTimeout(() => {
+                const numero = "5513991133842"; 
+                const mensagem = encodeURIComponent("Oi! Eu vi o site e escolhi a opção: " + opcao + ". Quando vamos?");
+                window.location.href = `https://wa.me/${numero}?text=${mensagem}`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
